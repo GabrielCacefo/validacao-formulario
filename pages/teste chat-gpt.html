@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <style>
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+        <span id="nomeError" class="error-message">Campo obrigatório</span><br><br>
+
+        <!-- Botão de cadastro chamando a função validarFormulario -->
+        <input type="button" value="Cadastrar" id="submitButton" onclick="validarFormulario()">
+    </form>
+
+    <script>
+        function validarFormulario() {
+            const nomeInput = document.getElementById('nome');
+            const nomeError = document.getElementById('nomeError');
+
+            // Verificar se o campo "Nome" está vazio
+            if (nomeInput.value.trim() === '') {
+                nomeError.style.display = 'inline';  // Mostrar mensagem de erro
+            } else {
+                nomeError.style.display = 'none';  // Ocultar mensagem de erro
+                // Aqui você pode adicionar a lógica para enviar o formulário, se necessário
+                alert('Formulário enviado com sucesso!');
+            }
+        }
+    </script>
+</body>
+</html>
+
